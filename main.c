@@ -200,8 +200,23 @@ void map_generate()
         }
         if (dice_roll == 3 || 4)
         {
-        
+            start_x -= 1;
+
+            if (start_x > 5)
+            {
+                // Gå nedåt
+            }
+            else
+            {
+                map[start_y][start_x] = 1;
+            }
         }
+
+        if (dice_roll == 5)
+        {
+            
+        }
+        
         // om det är 1 eller 2 vill vi försöka gå till vänster
         // om vi inte kan gå vänster, gå nedåt
         // om det är 3 eller 4 vill vi försöka gå till höger
