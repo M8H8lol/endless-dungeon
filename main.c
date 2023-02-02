@@ -113,7 +113,7 @@ byte Room3[room_height][room_width] = {
 //     0b0000100000000001,
 //     0b0000111111111111,
 // };
- 
+
 void room_draw(byte room[8][12], int x_offset, int y_offset)
 {
 
@@ -167,15 +167,48 @@ void map_generate()
     time_t t;
     srand(time(&t));
 
-    
-    
-
     for (int y = 0; y < map_height; y++)
     {
         for (int x = 0; x < map_width; x++)
         {
-            map[y][x] = (rand() % 4);
+            map[y][x] = 0;
         }
+    }
+
+    // börja på en random plats på första raden
+    int start_y = 0;
+    int start_x = rand() % map_width;
+    map[start_y][start_x] = 1;
+
+    // tills vi har kommit till slutet:
+    bool done = false;
+    while (done == false)
+    {
+        int dice_roll = (rand() % 4) + 1;
+        if (dice_roll <= 2)
+        {
+            start_x -= 1;
+
+            if (start_x < 0)
+            {
+                // Gå nedåt
+            }
+            else
+            {
+                map[start_y][start_x] = 1;
+            }
+        }
+        if (dice_roll == 3 || 4)
+        {
+        
+        }
+        // om det är 1 eller 2 vill vi försöka gå till vänster
+        // om vi inte kan gå vänster, gå nedåt
+        // om det är 3 eller 4 vill vi försöka gå till höger
+        // om vi inte kan gå höger, gå nedåt
+        // om det är 5:
+        // vill vi försöka gå nedåt
+        // om vi inte kan gå nedåt, så är banan klar
     }
 }
 
