@@ -202,7 +202,7 @@ void map_generate()
         {
             start_x -= 1;
 
-            if (start_x > 5)
+            if (start_x > map_width)
             {
                 // Gå nedåt
             }
@@ -214,9 +214,14 @@ void map_generate()
 
         if (dice_roll == 5)
         {
-            
+            start_y -= 1;
+
+            if (start_y > map_height)
+            {
+                
+            }
         }
-        
+
         // om det är 1 eller 2 vill vi försöka gå till vänster
         // om vi inte kan gå vänster, gå nedåt
         // om det är 3 eller 4 vill vi försöka gå till höger
